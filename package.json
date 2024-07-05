@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build"
+    "build": "npm run build",
+    "deploy": "netlify deploy"
   },
   "keywords": [],
   "author": "",

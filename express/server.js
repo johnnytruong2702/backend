@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const userRoutes = require('../routes/users');
+const helloRoutes = require('../routes/hello');
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 
 // Routes
 app.use('/api/users', userRoutes);
+app.use('/api/hello', helloRoutes);
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/myapp')

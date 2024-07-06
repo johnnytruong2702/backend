@@ -1,4 +1,4 @@
-const app = require('./express/server');
+const app = require('./netlify/functions/api');
 const port = 3000;
 
 // Start the server

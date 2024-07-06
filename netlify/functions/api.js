@@ -3,8 +3,8 @@ const serverless = require('serverless-http');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const userRoutes = require('../routes/users');
-const helloRoutes = require('../routes/hello');
+const userRoutes = require('../../routes/users');
+const helloRoutes = require('../../routes/hello');
 
 const app = express();
 

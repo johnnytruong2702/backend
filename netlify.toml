@@ -6,9 +6,3 @@
   from = "/api/*"
   status = 200
   to = "/.netlify/functions/api/:splat"
-  [dev]
-  framework = "#custom"
-  command = "npm run build"
-  targetPort = 3000
-  port = 8888
-  publish = "frontend/public" # Adjust to your frontend build output directory

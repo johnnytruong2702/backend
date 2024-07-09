@@ -16,11 +16,12 @@
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.8.0",
     "mongoose": "^8.4.3",
     "serverless-http": "^3.2.0",
     "whatwg-fetch": "^3.6.20"
   },
   "devDependencies": {
     "@types/whatwg-fetch": "^0.0.33"
-  } 
+  }
 }

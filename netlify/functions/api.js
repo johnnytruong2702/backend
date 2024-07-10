@@ -17,7 +17,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/hello', helloRoutes);
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/myapp')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected...'))
   .catch(err => console.log(err));
 

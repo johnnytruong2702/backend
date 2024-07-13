@@ -7,7 +7,7 @@ function authorize(roles = []) {
   
     return (req, res, next) => {
       console.log(jwt.decode(req.headers.authorization));
-      if (!roles.includes(req.user.role)) {
+      if (!roles.includes(decodedToken.role)) {
         return res.status(401).json({ message: 'Unauthorized' });
       }
       next();

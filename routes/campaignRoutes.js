@@ -5,7 +5,7 @@ const authorize = require('../middleware/authorize');
 const Campaign = require('../models/Campaign');
 
 // Route to post a campaign by user or business owner
-router.post('/campaign', authorize(['user', 'businessOwner']), async (req, res) => {
+router.post('/', authorize(['user', 'businessOwner']), async (req, res) => {
   const { title, description } = req.body;
   const author = req.user.username;
 
@@ -19,7 +19,7 @@ router.post('/campaign', authorize(['user', 'businessOwner']), async (req, res) 
 });
 
 // Route to approve a campaign by admin
-router.patch('/campaign/:id/approve', authorize('admin'), async (req, res) => {
+router.patch('/:id/approve', authorize('admin'), async (req, res) => {
   try {
     const campaign = await Campaign.findById(req.params.id);
     if (!campaign) {
@@ -35,7 +35,7 @@ router.patch('/campaign/:id/approve', authorize('admin'), async (req, res) => {
 });
 
 // Route to get pending campaigns for admin
-router.get('/campaigns/pending', authorize('admin'), async (req, res) => {
+router.get('/pending', authorize('admin'), async (req, res) => {
   try {
     const campaigns = await Campaign.find({ status: 'pending' });
     res.status(200).json(campaigns);

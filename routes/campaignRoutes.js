@@ -6,8 +6,7 @@ const Campaign = require('../models/Campaign');
 
 // Route to post a campaign by user or business owner
 router.post('/', authorize(['user', 'businessOwner']), async (req, res) => {
-  const { title, description } = req.body;
-  const author = req.user.username;
+  const { title, description, author } = req.body;
 
   try {
     const newCampaign = new Campaign({ title, description, author });

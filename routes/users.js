@@ -9,7 +9,7 @@ const JWT_SECRET = 'your_jwt_secret'; // Replace with a secure secret key
 // Register a new user
 router.post('/register', async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, role } = req.body;
     console.log(username);
     console.log(email);
     console.log(password);
@@ -18,7 +18,7 @@ router.post('/register', async (req, res) => {
         return res.status(400).json({ error: 'All fields are required' });
       }
 
-    const user = new User({ username, email, password });
+    const user = new User({ username, email, password, role });
     await user.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
         return res.status(400).json({ error: 'Invalid email or password' });
       }
   
-      const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
+      const token = jwt.sign({ id: user._id, role: user.role  }, JWT_SECRET, { expiresIn: '1h' });
       res.json({ token });
     } catch (err) {
       res.status(400).json({ error: err.message });

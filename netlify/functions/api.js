@@ -16,7 +16,7 @@ app.use(cors());
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/hello', helloRoutes);
-app.use('/api/campaigns', compaingRoutes);
+app.use('/api/campaign', compaingRoutes);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
